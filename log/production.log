@@ -1,0 +1,32 @@
+D, [2017-03-09T19:11:44.972674 #960] DEBUG -- :   [1m[35m (471.7ms)[0m  [1m[35mCREATE TABLE `carts` (`id` int AUTO_INCREMENT PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:45.467789 #960] DEBUG -- :   [1m[35m (455.1ms)[0m  [1m[35mCREATE TABLE `line_items` (`id` int AUTO_INCREMENT PRIMARY KEY, `product_id` int, `cart_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `quantity` int DEFAULT 1, `price` decimal, `order_id` int,  INDEX `index_line_items_on_cart_id`  (`cart_id`),  INDEX `index_line_items_on_product_id`  (`product_id`)) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:45.742857 #960] DEBUG -- :   [1m[35m (255.1ms)[0m  [1m[35mCREATE TABLE `orders` (`id` int AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` text, `email` varchar(255), `pay_type` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:45.962915 #960] DEBUG -- :   [1m[35m (210.1ms)[0m  [1m[35mCREATE TABLE `products` (`id` int AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `description` text, `image_url` varchar(255), `price` decimal(8,2), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:46.288112 #960] DEBUG -- :   [1m[35m (305.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:46.528046 #960] DEBUG -- :   [1m[35m (224.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) PRIMARY KEY) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:46.538050 #960] DEBUG -- :   [1m[35m (5.0ms)[0m  [1m[34mSELECT version FROM `schema_migrations`[0m
+D, [2017-03-09T19:11:46.673077 #960] DEBUG -- :   [1m[35m (55.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20170307032436)[0m
+D, [2017-03-09T19:11:46.753101 #960] DEBUG -- :   [1m[35m (75.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20170304022437),
+(20170304214308),
+(20170304215121),
+(20170306015018),
+(20170306020232),
+(20170306040054),
+(20170306051451),
+(20170306051524);
+
+[0m
+D, [2017-03-09T19:11:47.238215 #960] DEBUG -- :   [1m[35m (390.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2017-03-09T19:11:47.508433 #960] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (5.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2017-03-09T19:11:47.538429 #960] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2017-03-09T19:11:47.543289 #960] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'production', '2017-03-10 01:11:47', '2017-03-10 01:11:47')[0m
+D, [2017-03-09T19:11:47.583463 #960] DEBUG -- :   [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+D, [2017-03-09T19:11:47.588297 #960] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2017-03-09T19:11:47.598298 #960] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2017-03-09T19:11:47.603429 #960] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2017-03-09T19:11:47.623307 #960] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+D, [2017-03-09T19:11:47.753336 #960] DEBUG -- :   [1m[35mSQL (15.0ms)[0m  [1m[31mDELETE FROM `products`[0m
+D, [2017-03-09T19:11:47.803353 #960] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2017-03-09T19:11:47.813351 #960] DEBUG -- :   [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO `products` (`title`, `description`, `image_url`, `price`, `created_at`, `updated_at`) VALUES ('Seven Mobile Apps in Seven Weeks', '<p>\n      <em>Native Apps, Multiple Platforms</em>\n      Answer the question “Can we build this for ALL the devices?” with a\n      resounding YES. This book will help you get there with a real-world\n      introduction to seven platforms, whether you’re new to mobile or an\n      experienced developer needing to expand your options. Plus, you’ll find\n      out which cross-platform solution makes the most sense for your needs.\n      </p>', '7apps.jpg', 26.0, '2017-03-10 01:11:47', '2017-03-10 01:11:47')[0m
+D, [2017-03-09T19:11:47.933599 #960] DEBUG -- :   [1m[35m (115.2ms)[0m  [1m[35mCOMMIT[0m
